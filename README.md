@@ -1,74 +1,135 @@
-# NexTalk - Premium Messaging Experience 🚀
+# <p align="center">NexTalk — Premium Messaging Experience</p>
 
-NexTalk is a high-end, real-time messaging application built with a focus on **Premium Aesthetics**, **Fluid Animations**, and **Scalable Architecture**. Designed for those who appreciate modern UI/UX principles like Glassmorphism and sophisticated interaction design.
+<p align="center">
+  <img src="https://img.shields.io/badge/Expo-000000?style=for-the-badge&logo=expo&logoColor=white" />
+  <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" />
+</p>
 
-![Banner](https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1200&auto=format&fit=crop)
+<p align="center">
+  <b>NexTalk</b> is a sophisticated, real-time messaging ecosystem designed with <b>Premium Aesthetics</b> and <b>High-Performance Architecture</b>. Featuring a clean Indigo-branded UI, Glassmorphism elements, and smooth micro-animations, it provides a truly elite communication experience.
+</p>
 
-## ✨ Key Features
+---
 
-- **💎 Elite Design**: A "Premium Indigo" aesthetic featuring glassmorphism, depth-based shadows, and curated color palettes.
-- **⚡ Real-Time Core**: Instant message delivery and presence synchronization powered by WebSockets.
-- **🎭 Stories & Moments**: Share your day with a high-end, interactive Story viewer with progress bars and quick reactions.
-- **🤖 NexBot AI**: A smart companion integrated directly into your chat experience (Powered by Gemini AI).
-- **📞 Call History**: Professional call logs with date grouping (Today, Yesterday, Earlier) and distinct status indicators.
-- **🔒 End-to-End Style**: Secure-looking onboarding and authentication flows with fluid step transitions.
-- **📁 Multimedia Ready**: Share images and voice notes seamlessly across conversations.
+## 📱 Visual Showcase
+
+### ✨ Elegant Onboarding
+Explore the fluid first-time experience that welcomes our premium users.
+
+<table width="100%">
+  <tr>
+    <td width="33%"><img src="mobile/screenshot/onboarding1.png" width="100%"></td>
+    <td width="33%"><img src="mobile/screenshot/onboarding2.png" width="100%"></td>
+    <td width="33%"><img src="mobile/screenshot/onboarding3.png" width="100%"></td>
+  </tr>
+  <tr align="center">
+    <td><b>Connect Globally</b></td>
+    <td><b>Privacy First</b></td>
+    <td><b>AI Powered</b></td>
+  </tr>
+</table>
+
+### 🔐 Authentication Flow
+Unified branding across Login and Registration screens for a seamless start.
+
+<table width="100%">
+  <tr>
+    <td width="50%"><img src="mobile/screenshot/loginscreen.png" width="100%"></td>
+    <td width="50%"><img src="mobile/screenshot/registerscreen.png" width="100%"></td>
+  </tr>
+  <tr align="center">
+    <td><b>Premium Sign In</b></td>
+    <td><b>Instant Registration</b></td>
+  </tr>
+</table>
+
+### 💬 Messaging & Real-Time Interaction
+Experience the pinnacle of chat design with support for group conversations and high-fidelity messaging.
+
+<table width="100%">
+  <tr>
+    <td width="33%"><img src="mobile/screenshot/homescreen.png" width="100%"></td>
+    <td width="33%"><img src="mobile/screenshot/roomchatscreen.png" width="100%"></td>
+    <td width="33%"><img src="mobile/screenshot/grupscreen.png" width="100%"></td>
+  </tr>
+  <tr align="center">
+    <td><b>Main Chat Hub</b></td>
+    <td><b>Fluid Chat Room</b></td>
+    <td><b>Interactive Groups</b></td>
+  </tr>
+</table>
+
+### 🤖 NexBot AI & Call History
+Integrated AI companionship and professional-grade call logging.
+
+<table width="100%">
+  <tr>
+    <td width="50%"><img src="mobile/screenshot/nexbotscreen.png" width="100%"></td>
+    <td width="50%"><img src="mobile/screenshot/callscreen.png" width="100%"></td>
+  </tr>
+  <tr align="center">
+    <td><b>Smart AI Assistant</b></td>
+    <td><b>Organized Call History</b></td>
+  </tr>
+</table>
+
+### 🌈 Moments & Discovery
+Stay updated with high-end story interactions and a dynamic discovery explorer.
+
+<table width="100%">
+  <tr>
+    <td width="50%"><img src="mobile/screenshot/storyscreen.png" width="100%"></td>
+    <td width="50%"><img src="mobile/screenshot/explorescreen.png" width="100%"></td>
+  </tr>
+  <tr align="center">
+    <td><b>Interactive Stories</b></td>
+    <td><b>Connect & Explore</b></td>
+  </tr>
+</table>
+
+---
+
+## 🚀 Key Features
+
+- **💎 Elite Design Language**: Deep Indigo hues, layered transparency, and sophisticated typography.
+- **⚡ High-Speed Messaging**: Real-time logic built on Gorilla WebSockets for ultra-low latency.
+- **🛡️ Secure Communication**: End-to-end feel with session-based authentication (JWT).
+- **🗣️ Advanced AI Integration**: Meet NexBot—your companion for smart replies and instant knowledge.
+- **📊 Professional History**: Smart date grouping for calls (Today, Yesterday, Earlier).
+- **🌐 Scalable Backend**: Fiber (Golang) middleware management for high-concurrency handling.
 
 ## 🛠 Tech Stack
 
-### Frontend (Mobile)
-- **Framework**: React Native (Expo Go)
-- **State Management**: Zustand
-- **Navigation**: Expo Router (File-based)
-- **Styling**: Vanilla CSS with Linear Gradients & Shadows
-- **Animations**: React Native Reanimated & Animated API
-- **Icons**: Lucide React Native
+| Module | Technologies |
+|---|---|
+| **Frontend** | React Native, Expo, Zustand, Lucide Icons, Reanimated |
+| **Backend** | Golang, Fiber Framework, Gorilla WebSocket |
+| **Database** | PostgreSQL with GORM |
+| **Cache** | Redis for state management |
+| **Cloud** | Cloudinary for media uploads |
 
-### Backend (API)
-- **Language**: Golang
-- **Web Framework**: Fiber (Express-inspired, high performance)
-- **Database**: PostgreSQL (GORM)
-- **Cache/Realtime**: Redis
-- **Authentication**: JWT (JSON Web Tokens)
-- **Realtime**: Gorilla WebSocket
+## ⚙️ Installation & Setup
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js & npm (for Mobile)
-- Go 1.21+ (for Backend)
-- Docker & Docker Compose (for Postgres & Redis)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/NexTalk-SocialMessageApp.git
-   ```
-
-2. **Spin up Infrastructure**
+1. **Spin up Infrastructure**
    ```bash
    docker-compose up -d
    ```
 
-3. **Setup Backend**
+2. **Configure Backend**
    ```bash
-   cd backend
-   go mod download
-   # Update .env with your credentials
+   cd backend && go mod download
+   # Update .env with your PostgreSQL & Redis URLs
    go run cmd/api/main.go
    ```
 
-4. **Setup Mobile**
+3. **Launch Mobile**
    ```bash
-   cd mobile
-   npm install
+   cd mobile && npm install
    npx expo start
    ```
 
-## 📸 Presentation Mode
-This repository is currently configured for documentation and portfolio showcases. It includes high-quality **Premium Dummy Data** (featuring the "kenzama" persona) to ensure a polished look even without a live backend connection.
-
 ---
-
-Built with ❤️ by [Your Name/Team]
+<p align="center">Built with passion by <b>Your Name</b></p>

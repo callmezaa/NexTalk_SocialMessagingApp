@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingVi
 import { useRouter } from 'expo-router';
 import { useAuthStore } from '../../store/authStore';
 import { Colors } from '../../constants/Colors';
-import { Lock, Mail, User as UserIcon, MessageCircle, ArrowRight, ShieldCheck } from 'lucide-react-native';
+import { Lock, Mail, User as UserIcon, MessageCircle, ArrowRight, ShieldCheck, Github, Chrome as Google, Smartphone as Apple } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Register() {
@@ -45,11 +45,17 @@ export default function Register() {
     }
   };
 
+  const renderSocialBtn = (Icon: any, color: string) => (
+    <TouchableOpacity style={styles.socialBtn} activeOpacity={0.7}>
+      <Icon color={color} size={22} />
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.root}>
       <StatusBar barStyle="dark-content" />
       <LinearGradient
-        colors={['#F8FAFC', '#F5F5FF', '#EEF2FF']}
+        colors={['#F8FAFC', '#EEF2FF', '#E0E7FF']}
         style={StyleSheet.absoluteFill}
       />
       
@@ -71,32 +77,32 @@ export default function Register() {
             <View style={styles.headerArea}>
               <View style={styles.logoRing}>
                 <LinearGradient
-                  colors={['#8B5CF6', '#7C3AED']}
+                  colors={['#6366F1', '#4F46E5']}
                   style={styles.logoBox}
                 >
                   <MessageCircle color="#FFF" size={32} strokeWidth={2.5} />
                 </LinearGradient>
               </View>
-              <Text style={styles.brandTitle}>Join NexTalk</Text>
+              <Text style={styles.brandTitle}>NexTalk</Text>
               <Text style={styles.welcomeTitle}>Create Account</Text>
               <Text style={styles.welcomeSubtitle}>Join thousands of users in our premium messaging network</Text>
             </View>
-
+ 
             {/* Form Area */}
             <View style={styles.formArea}>
               {errorMsg ? (
-                <View style={styles.errorContainer}>
+                <Animated.View style={styles.errorContainer}>
                   <Text style={styles.errorText}>{errorMsg}</Text>
-                </View>
+                </Animated.View>
               ) : null}
 
               <View style={[styles.inputGroup, isFocused === 'username' && styles.inputGroupFocused]}>
                 <View style={styles.iconBox}>
-                  <UserIcon color={isFocused === 'username' ? '#7C3AED' : '#94A3B8'} size={20} />
+                  <UserIcon color={isFocused === 'username' ? '#4F46E5' : '#94A3B8'} size={20} />
                 </View>
                 <TextInput
                   style={styles.input}
-                  placeholder="Choose Username"
+                  placeholder="Username"
                   placeholderTextColor="#94A3B8"
                   value={username}
                   onChangeText={setUsername}
@@ -108,7 +114,7 @@ export default function Register() {
 
               <View style={[styles.inputGroup, isFocused === 'email' && styles.inputGroupFocused]}>
                 <View style={styles.iconBox}>
-                  <Mail color={isFocused === 'email' ? '#7C3AED' : '#94A3B8'} size={20} />
+                  <Mail color={isFocused === 'email' ? '#4F46E5' : '#94A3B8'} size={20} />
                 </View>
                 <TextInput
                   style={styles.input}
@@ -125,11 +131,11 @@ export default function Register() {
 
               <View style={[styles.inputGroup, isFocused === 'password' && styles.inputGroupFocused]}>
                 <View style={styles.iconBox}>
-                  <Lock color={isFocused === 'password' ? '#7C3AED' : '#94A3B8'} size={20} />
+                  <Lock color={isFocused === 'password' ? '#4F46E5' : '#94A3B8'} size={20} />
                 </View>
                 <TextInput
                   style={styles.input}
-                  placeholder="Create Password"
+                  placeholder="Password"
                   placeholderTextColor="#94A3B8"
                   value={password}
                   onChangeText={setPassword}
@@ -146,7 +152,7 @@ export default function Register() {
                 activeOpacity={0.7}
               >
                 <View style={[styles.checkbox, agreed && styles.checkboxActive]}>
-                  {agreed && <ShieldCheck color="#FFF" size={14} strokeWidth={3} />}
+                  {agreed && <ShieldCheck color="#FFF" size={12} strokeWidth={3} />}
                 </View>
                 <Text style={styles.termsText}>
                   I agree to the <Text style={styles.termsLink}>Terms of Service</Text> and <Text style={styles.termsLink}>Privacy Policy</Text>
@@ -161,7 +167,7 @@ export default function Register() {
                   activeOpacity={0.9}
                 >
                   <LinearGradient
-                    colors={['#8B5CF6', '#7C3AED']}
+                    colors={['#6366F1', '#4F46E5']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}
                     style={styles.btnGradient}
@@ -172,6 +178,19 @@ export default function Register() {
                 </TouchableOpacity>
               </Animated.View>
 
+              {/* Divider */}
+              <View style={styles.dividerRow}>
+                <View style={styles.dividerLine} />
+                <Text style={styles.dividerText}>or join with</Text>
+                <View style={styles.dividerLine} />
+              </View>
+
+              {/* Social Logins */}
+              <View style={styles.socialRow}>
+                {renderSocialBtn(Google, '#EA4335')}
+                {renderSocialBtn(Apple, '#1F2937')}
+                {renderSocialBtn(Github, '#1F2937')}
+              </View>
             </View>
 
             {/* Footer */}
@@ -209,72 +228,71 @@ const styles = StyleSheet.create({
   // Decorative
   decoCircle1: {
     position: 'absolute',
-    top: -40,
-    left: -40,
-    width: 180,
-    height: 180,
-    borderRadius: 90,
-    backgroundColor: 'rgba(139, 92, 246, 0.05)',
+    top: -50,
+    right: -50,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    backgroundColor: 'rgba(99, 102, 241, 0.05)',
   },
   decoCircle2: {
     position: 'absolute',
-    bottom: 40,
-    right: -30,
-    width: 140,
-    height: 140,
-    borderRadius: 70,
-    backgroundColor: 'rgba(124, 58, 237, 0.03)',
+    bottom: 20,
+    left: -40,
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    backgroundColor: 'rgba(79, 70, 229, 0.03)',
   },
 
   // Header 
   headerArea: {
     alignItems: 'center',
-    marginBottom: 32,
+    marginBottom: 40,
     marginTop: Platform.OS === 'ios' ? 0 : 40,
   },
   logoRing: {
-    width: 80,
-    height: 80,
-    borderRadius: 26,
-    backgroundColor: 'rgba(139, 92, 246, 0.08)',
+    width: 84,
+    height: 84,
+    borderRadius: 28,
+    backgroundColor: 'rgba(99, 102, 241, 0.08)',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
   },
   logoBox: {
-    width: 60,
-    height: 60,
-    borderRadius: 20,
+    width: 64,
+    height: 64,
+    borderRadius: 22,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#7C3AED',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.25,
-    shadowRadius: 10,
+    shadowColor: '#4F46E5',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
     elevation: 8,
   },
   brandTitle: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '800',
-    color: '#7C3AED',
+    color: '#4F46E5',
     letterSpacing: 4,
     textTransform: 'uppercase',
     marginBottom: 16,
   },
   welcomeTitle: {
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: '900',
     color: '#0F172A',
     letterSpacing: -0.5,
     marginBottom: 8,
   },
   welcomeSubtitle: {
-    fontSize: 14,
+    fontSize: 15,
     color: '#64748B',
     fontWeight: '500',
     textAlign: 'center',
-    lineHeight: 20,
-    paddingHorizontal: 10,
+    lineHeight: 22,
   },
 
   // Form
@@ -299,7 +317,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFF',
-    height: 58,
+    height: 60,
     borderRadius: 18,
     borderWidth: 1.5,
     borderColor: '#F1F5F9',
@@ -311,12 +329,12 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   inputGroupFocused: {
-    borderColor: '#7C3AED',
+    borderColor: '#4F46E5',
     shadowOpacity: 0.08,
   },
   iconBox: {
-    width: 48,
-    height: 48,
+    width: 50,
+    height: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -346,8 +364,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   checkboxActive: {
-    backgroundColor: '#7C3AED',
-    borderColor: '#7C3AED',
+    backgroundColor: '#4F46E5',
+    borderColor: '#4F46E5',
   },
   termsText: {
     fontSize: 13,
@@ -357,23 +375,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   termsLink: {
-    color: '#7C3AED',
+    color: '#4F46E5',
     fontWeight: '700',
   },
 
   mainBtn: {
     width: '100%',
-    height: 56,
+    height: 58,
     borderRadius: 18,
     overflow: 'hidden',
-    shadowColor: '#7C3AED',
+    shadowColor: '#4F46E5',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.3,
     shadowRadius: 10,
     elevation: 6,
   },
   btnDisabled: {
-    opacity: 0.6,
+    opacity: 0.7,
   },
   btnGradient: {
     flex: 1,
@@ -390,11 +408,49 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
 
+  // Social
+  dividerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 32,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#E2E8F0',
+  },
+  dividerText: {
+    paddingHorizontal: 16,
+    fontSize: 13,
+    color: '#94A3B8',
+    fontWeight: '600',
+  },
+  socialRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 16,
+  },
+  socialBtn: {
+    width: 60,
+    height: 60,
+    borderRadius: 18,
+    backgroundColor: '#FFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1.5,
+    borderColor: '#F1F5F9',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+
   // Footer
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 32,
+    marginTop: 40,
   },
   footerText: {
     fontSize: 15,
@@ -403,7 +459,7 @@ const styles = StyleSheet.create({
   },
   footerLink: {
     fontSize: 15,
-    color: '#7C3AED',
+    color: '#4F46E5',
     fontWeight: '800',
   },
 });
