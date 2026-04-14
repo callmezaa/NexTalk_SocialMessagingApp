@@ -1,0 +1,12 @@
+{
+  "extends": "expo/tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "strict": true,
+    "baseUrl": ".",
+    "jsx": "react-native",
+    "paths": {
+      "@/*": ["*"]
+    }
+  }
+}
